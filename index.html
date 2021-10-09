@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Actividad</title>
+	<style>
+	body{
+		background-image: url(fondo.png);
+		background-size: cover;
+	}
+		.n{
+			position: absolute;
+			top: 50px;
+			left: 320px;
+			width: 700px;
+			height: 200px;
+			background-color: #64B5F6;
+			border:  10px solid black;
+			font-size: 160px;
+			padding-left: 180px;
+			box-sizing: border-box;
+		}
+		.di{
+			position: absolute;
+			top: 360px;
+			left: 170px;
+			width: 170px;
+			height: 170px;
+			background-color: #64B5F6;
+			border:  10px solid black;
+			padding-left: 55px;
+			font-size: 70px;
+			box-sizing: border-box;
+
+		}
+		.des{
+			position: absolute;
+			top: 70px;
+			left: 250px;
+			width: 0px;
+			height: 500px;
+			background-color: #FFBC42 ;
+			font-size: 200px;
+			padding-left: 0px;
+			padding-top: 180px;
+			border-radius: 65px;
+			box-sizing: border-box;
+			transition: 2s;
+			z-index: 5;
+		}
+		.en{
+			position: absolute;
+			top: 540px;
+			left: 200px;
+			width: 100px;
+			height: 40px;
+			background-color: #64B5F6;
+			border:  5px solid black;
+			border-radius: 20px;
+			padding-left: 10px;
+			font-size: 22px;
+			box-sizing: border-box;
+
+		}
+		.bot{
+			position: absolute;
+			top: 360px;
+			left: 390px;
+			width: 150px;
+			height: 150px;
+			background-color: #64B5F6;
+			border:  10px solid black;
+
+		}
+		.pu{
+			position: absolute;
+			top: 340px;
+			left: 720px;
+			width: 320px;
+			height: 180px;
+			background-color: #64B5F6;
+			border:  10px solid black;
+			padding-left: 70px;
+			padding-top: 40px;
+			font-size: 70px;
+			box-sizing: border-box;
+		}
+		.tie{
+			position: absolute;
+			top: 340px;
+			left: 940px;
+			width: 240px;
+			height: 180px;
+			background-color: #64B5F6;
+			border:  10px solid black;
+			padding-left: 90px;
+			padding-top: 40px;
+			font-size: 70px;
+			box-sizing: border-box;
+		}
+		.tex1{
+			position: absolute;
+			top: 310px;
+			left: 175px;
+			font-size: 40px;
+			color: white;
+		}
+		.tex2{
+			position: absolute;
+			top: 310px;
+			left: 420px;
+			font-size: 40px;
+			color: white;
+
+		}
+		.tex3{
+			position: absolute;
+			top: 290px;
+			left: 760px;
+			font-size: 40px;
+			color: white;
+		}
+		.tex4{
+			position: absolute;
+			top: 290px;
+			left: 1010px;
+			font-size: 40px;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="n" id="cu"></div>
+	<div class="des" id="d"></div>
+	<form>
+		<label><div class="tex1" id="t1">Respuesta:</div></label><br>
+		<input type="text" id="numero1" class="di"><br>
+	</form>
+	<div class="en" id="re" onclick="res()">Ingresar</div>
+	<div class="bot" id="b" onclick="num()"></div>
+	<div class="pu" id="resultado"></div>
+	<div class="tie" id="tiempo"></div>
+	<div class="tex1">Respuesta:</div>
+	<div class="tex2">Boton</div>
+	<div class="tex3">Puntaje:</div>
+	<div class="tex4">Tiempo:</div>
+<script>
+
+	function num() {
+		var num1=Math.floor((Math.random() * (6-1))+1);
+		var signo=Math.floor((Math.random() * (3-1))+1);
+		var num2=Math.floor((Math.random() * (6-1))+1);
+		if(signo==1){
+			signo="+";
+			suma=num1+num2;
+		}
+		if(signo==2){
+			signo="-";
+			suma=num1-num2;
+		}
+		cu.innerHTML=num1+"       "+signo+"       "+num2;
+	}
+	pun=0;
+		function res(){
+			pun=pun+10;
+			resultado.innerHTML=pun;
+	}
+
+	x=60;
+	function crono(){
+	
+		if(x==0){
+			tiempo.innerHTML=x;
+			tiempo=innerHTML="Nos vemos";
+			clearInterval(ricardo);
+			re.style.width=0+"px";
+			re.style.fontSize=0+"px";
+			re.style.paddingLeft=0+"px";
+			re.style.border=0+"px";
+			d.style.border=0+"px";
+			d.style.width=850+"px";
+			d.style.fontSize=80+"px";
+			d.style.paddingLeft=100+"px";
+			d.style.paddingTop=160+"px";
+			d.style.border=10+"px";
+			d.style.borderStyle="solid";
+			d.style.borderStyle="black";
+			d.innerHTML="Se acabo el tiempo :( <br> Hiciste "+pun+" puntos";
+		}
+		else{
+			tiempo.innerHTML=x;
+			x=x-1;
+		}
+
+	}
+	ricardo=setInterval(crono, 1000);		
+		</script>	
+
+</body>
+</html>
